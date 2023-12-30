@@ -1,14 +1,60 @@
-<%- include('includes/head'); %>
+<%- include('includes/head') -%>
+<%- include('includes/navbar') -%>
 
-<section class="container">
-    <h1>Lorem Ipsum</h1>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-lg-2"></div>
 
-    <form action="/" method="post">
-        <input type="hidden" name="_csrf" value="<%= csrfToken %>"> <!-- Importando CSRF Token -->
+            <div class="col-lg-8 my-3">
+                <h1 class="text-center">Agenda</h1>
+                <p class="text-center load"> Seus contatos: </p>
+            
+                <div class="row"> 
+                    <div class="col">
+                        <div class="alert alert-danger"> Olha o erro</div>
+                    </div>
+                </div>
 
-        <label>Cliente</label> <input type="text" name="cliente">
-        <button>Submit</button>
-    </form>
-</section>
+                <div class="responsive-table">
+                    <table class="table">
+                        <tr>
+                            <td>João Victor</td>
+                            <td>Carrijo</td>
+                            <td>16991110426</td>
+                            <td>joaovictorxl120@gmail.com</td>
+                        </tr>
 
-<%- include('includes/footer') %>
+                        <tr>
+                            <td>João Victor</td>
+                            <td>Carrijo</td>
+                            <td>16991110426</td>
+                            <td>joaovictorxl120@gmail.com</td>
+                        </tr>
+
+                        <tr>
+                            <td>João Victor</td>
+                            <td>Carrijo</td>
+                            <td>16991110426</td>
+                            <td>joaovictorxl120@gmail.com</td>
+                        </tr>
+
+                        <tr>
+                            <td>João Victor</td>
+                            <td>Carrijo</td>
+                            <td>16991110426</td>
+                            <td>joaovictorxl120@gmail.com</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            
+            <div class="resp"
+
+            <div class="col-lg-2"></div>
+        </div>    
+    
+    </div>
+
+<%- include('includes/footer') -%>
