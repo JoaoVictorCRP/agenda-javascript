@@ -12,14 +12,14 @@ exports.register = async (req, res) => {
         if(login.errors.length > 0) {
             req.flash('errors', login.errors); // flash de erros no cadastro.
             req.session.save(function() { // Salvando sessão
-                return res.redirect('back'); // Mandando de volta para a página de login
+                return res.redirect('/login/index'); // Mandando de volta para a página de login
             });
             return;
         };
 
         req.flash('success', 'Seu usuário foi criado com sucesso!'); // flash de erros no cadastro.
         req.session.save(function() { // Salvando sessão
-            return res.redirect('back'); // Mandando de volta para a página de login
+            return res.redirect('/login/index'); // Mandando de volta para a página de login
         });
 
     } catch(e) {
