@@ -1,0 +1,20 @@
+MANUAL DE TAGS EJS:
+
+1) <% Controle de fluxo (if, for...) %>
+
+2) <%= Imprime escapando caracteres %>
+
+3) <%- Imprime sem escapar caracteres %>
+
+4) <%# Comentário %>
+
+
+5) <% if (something) { %>
+
+        <%=    Exibir    %>
+
+    <% } else { %>
+
+        <%= Exibir outra coisa
+    
+    <% } %>
