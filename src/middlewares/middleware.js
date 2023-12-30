@@ -1,12 +1,7 @@
 // Injetar conteúdo em múltiplos ejs
 exports.middlewareGlobal = (req, res, next) => {
-    res.locals.variavelLocal = 'Sou uma var. disponível em todas as páginas! '; 
-
-    if(req.body.cliente) {
-        console.log();
-        console.log(`Vi que você postou ${req.body.cliente}`);
-        console.log();
-    }
+    res.locals.errors = req.flash('errors'); // Var. erros disponível em todas as páginas!
+    res.locals.success = req.flash('success');
     next();
 };
 
