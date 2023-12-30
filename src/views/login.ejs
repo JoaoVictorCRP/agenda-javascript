@@ -1,0 +1,62 @@
+<%- include('includes/head') -%>
+<%- include('includes/navbar') -%>
+
+    <div class="container">
+        
+        <div class="row">
+
+            <div class="col-lg">
+                <h1 class="text-center">SEJA BEM-VINDO!</h1>
+                <p class="text-center load">Faça login ou cadastre uma nova conta.</p>
+
+                <div class="row">
+                    <div class="col-lg">
+                        <h4>Novo cadastro</h4>
+                        <p>Caso você ainda não tenha uma conta, preencha os campos abaixo com seus dados:</p>
+
+                        <form action="/login/register" method="POST"> <!-- Lembrando que o METHOD padrão de um form é GET! -->
+                            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                            <div class="form-group">
+                              <label>Seu e-mail</label>
+                              <input type="email" class="form-control" name="email">
+                            </div>
+
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Sua senha</label>
+                              <input type="password" class="form-control" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Criar minha conta</button>
+                          </form>
+                    </div>
+
+                    <div class="col-lg">
+                        <h4>Entrar com uma conta existente</h4>
+                        <p>Caso você já tenha uma conta, realize faça login abaixo:</p>
+                        <form action="/login/log" method="POST">
+                            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                            <div class="form-group">
+                              <label>Seu e-mail</label>
+                              <input type="email" class="form-control" name="email">
+                            </div>
+
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Sua senha</label>
+                              <input type="password" class="form-control" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Entrar</button>
+                          </form>
+
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="resp"
+
+            <div class="col-lg-2"></div>
+        </div>    
+    
+    </div>
+
+<%- include('includes/footer') -%>

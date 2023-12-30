@@ -18,8 +18,8 @@ exports.csrfMiddleware = (req, res, next) => {
 
 // Checando erro de token do CSRF
 exports.checkCsrf = (err, req, res, next) => {
-    if(err && err.code === 'EBADCSRFTOKEN'){ 
-        return res.render('erroToken')
+    if(err){ // Caso qualquer erro ocorra, a página do 404 será renderizada.
+        return res.render('404')
     };
 
     next();
