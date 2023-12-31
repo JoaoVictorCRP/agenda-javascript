@@ -2,6 +2,7 @@
 exports.middlewareGlobal = (req, res, next) => {
     res.locals.errors = req.flash('errors'); // Var. erros disponível em todas as páginas!
     res.locals.success = req.flash('success');
+    res.locals.user = req.session.user;
     next();
 };
 
@@ -13,7 +14,7 @@ exports.csrfMiddleware = (req, res, next) => {
 
 // Checando erro de token do CSRF
 exports.checkCsrf = (err, req, res, next) => {
-    if(err){ // Caso qualquer erro ocorra, a página do 404 será renderizada.
+    if(err){
         return res.render('404')
     };
 
