@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcryptjs = require('bcryptjs');  // Algoritmo de hashing para senhas
 
 const LoginSchema = new mongoose.Schema({
     email: {type: String, required: true },
@@ -20,6 +21,8 @@ class Login {
         if(this.errors.length > 0) return;
 
         try {
+            const salt = bcryptjs.genSaltSync(); // Salt são dados aleatórios que servem de input adicional para a senha (dificultando o acesso de invasores ao "conteúdo real" da senha)
+            this.body.password = bcryptjs.hashSync(this.body.password, salt)
             this.user = await LoginModel.create(this.body);
         } catch(e) {
             console.log(e);
@@ -35,7 +38,7 @@ class Login {
         if(this.body.password.length < 3 || this.body.password.length > 50){
             this.errors.push('A senha precisa ter entre 3 e 50 caracteres.')
         };
-    }   
+    };   
 
     cleanUp() {
         for(const key in this.body) { // Validando chaves do body
