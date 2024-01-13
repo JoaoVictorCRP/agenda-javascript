@@ -12,9 +12,15 @@
 
                 <%- include('includes/messages') %>
 
-                <form action="/contato/register" method="post"> <!-- Lembrando que o METHOD padrão de um form é GET! -->
+                <% if(contato._id) { %> <!-- Se o contato existe... vamos editá-lo! -->
+                    <form action="/contato/edit/<%=contato._id%>" method="post">
+                <% }  else { %>
+                    <form action="/contato/register" method="post"> <!-- Lembrando que o METHOD padrão de um form é GET! -->
+                <% } %>
+
                     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                     <div class="form-group">
+
                       <label>Nome</label>
                       <input value="<%= contato.nome %>"  type="text" class="form-control" name="nome">
                     
@@ -22,7 +28,7 @@
                       <input value="<%= contato.sobrenome %>"  type="text" class="form-control" name="sobrenome">
 
                       <label>Email</label>
-                      <input value="<%= contato.email %>"  type="text" class="form-control" name="emal">
+                      <input value="<%= contato.email %>"  type="text" class="form-control" name="email">
 
                       <label>Telefone</label>
                       <input value="<%= contato.telefone %>"  type="tel" class="form-control" name="telefone">
@@ -31,8 +37,6 @@
                   </form>
 
             </div>
-            
-            <div class="resp"
 
             <div class="col-lg-2"></div>
         </div>    
