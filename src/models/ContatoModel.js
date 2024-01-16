@@ -53,11 +53,23 @@ Contato.prototype.edit = async function(id) {
     this.valida();
     if(this.errors.length > 0) return;
     this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, {new: true});
-}
+};
 
-Contato.buscaPorId = async function(id) {
+Contato.buscaPorId = async function(id) { // Método Estático!
     if(typeof id !== 'string') return;
     const contato = await ContatoModel.findById(id) 
+    return contato;
+};
+
+Contato.buscaContatos = async function() { // Buscando contatos cadastrados no BD.
+    const contatos = await ContatoModel.find()
+        .sort({ criadoEm: -1}); // Organizando e filtrando por data de criação.
+    return contatos;
+}
+
+Contato.delete = async function(id) {
+    if(typeof id !== 'string') return;
+    const contato = await ContatoModel.findOneAndDelete(id);
     return contato;
 }
 

@@ -12,25 +12,27 @@
 
                 <%- include('includes/messages') %>
 
-                <div class="responsive-table">
-                    <table class="table">
-                        <tr>
-                            <td>João Victor</td>
-                            <td>Carrijo</td>
-                            <td>16991110426</td>
-                            <td>joaovictorxl120@gmail.com</td>
-                        </tr>
+                <% if(contatos.length > 0) { %>
+                    <div class="responsive-table">
+                        <table class="table">
+                            <% contatos.forEach(contato => { %>
+                            <tr>
+                                <td> <%=  contato.nome %>  </td>
+                                <td> <%=  contato.sobrenome %> </td>
+                                <td> <%=  contato.telefone %> </td>
+                                <td> <%=  contato.email %> </td>
+                                <td> <a href="/contato/index/<%= contato._id %>">Editar</a> </td>
+                                <td> <a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a> </td>
+                            </tr>
 
-                        <tr>
-                            <td>João Victor</td>
-                            <td>Carrijo</td>
-                            <td>16991110426</td>
-                            <td>joaovictorxl120@gmail.com</td>
-                        </tr>
-
+                            <% }) %>
                     </table>
                 </div>
+                <% } else { %>
 
+                    <h1 class="text-center text-danger"> Você ainda não registrou nenhum contato! </h1>
+
+                <% }  %>
             </div>
             
             <div class="resp"
