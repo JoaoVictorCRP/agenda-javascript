@@ -2,21 +2,21 @@
 <%- include('includes/navbar') -%>
 
     <div class="container">
-        
         <div class="row">
-
             <div class="col-lg">
+
+              
                 <h1 class="text-center">SEJA BEM-VINDO!</h1>
                 <p class="text-center load">Faça login ou cadastre uma nova conta.</p>
 
                 <%- include('includes/messages'); %>
 
                 <div class="row">
-                    <div class="col-lg">
+                    <div class="col-lg my-5">
                         <h4>Novo cadastro</h4>
                         <p>Caso você ainda não tenha uma conta, preencha os campos abaixo com seus dados:</p>
 
-                        <form action="/login/register" method="post"> <!-- Lembrando que o METHOD padrão de um form é GET! -->
+                        <form class="form-cadastro" action="/login/register" method="post"> <!-- Lembrando que o METHOD padrão de um form é GET! -->
                             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                             <div class="form-group">
                               <label>Seu e-mail</label>
@@ -31,10 +31,10 @@
                           </form>
                     </div>
 
-                    <div class="col-lg">
+                    <div class="col-lg my-5">
                         <h4>Entrar com uma conta existente</h4>
                         <p>Caso você já tenha uma conta, realize faça login abaixo:</p>
-                        <form action="/login/login" method="POST">
+                        <form class="form-login" action="/login/login" method="POST">
                             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                             <div class="form-group">
                               <label>Seu e-mail</label>

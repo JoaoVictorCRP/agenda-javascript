@@ -1,4 +1,13 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-import './assets/css/style.css';
+import LoginValidation from './modules/LoginValidation';
+import ContatoValidation from './modules/ContatoValidation';
+
+const cadastro = new LoginValidation('.form-cadastro');
+const login = new LoginValidation('.form-login');
+
+const contato = new ContatoValidation('.')
+
+login.init();
+cadastro.init();

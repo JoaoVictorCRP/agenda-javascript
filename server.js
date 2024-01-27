@@ -11,7 +11,7 @@ const connectionString = mongoose.connect(process.env.CONNECTIONSTRING)
         console.log("Conectado com sucesso!")
         app.emit("pronto");
     })
-    .catch(e => console.log(e))
+    .catch(e => console.log(e));
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flashMessages = require('connect-flash');
